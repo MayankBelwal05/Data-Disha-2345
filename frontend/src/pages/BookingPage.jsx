@@ -3,6 +3,7 @@ import './BookingPage.css'
 export default function BookingPage() {
 
 
+    
 
 
 
@@ -123,7 +124,7 @@ export default function BookingPage() {
 
             {/* Custom Packages Booking */}
             <div className='custom-booking-section' >
-                <h1>Create Your <span className='services-span'>Custom Package</span></h1>
+                <h1>CREATE YOUR <span className='services-span'>CUSTOM PAKAGE</span></h1>
                 <div className='custom-booking-card' >
                     <img className="custom-booking-image" src="https://img.freepik.com/free-photo/black-white-people-party-together_23-2147651899.jpg?t=st=1711642837~exp=1711646437~hmac=05471d3d9ce271ae03a9b6cc18aa9f2bba7a619aa01c2a059ac429d8b28fd7fa&w=996" alt="Custom Booking Image" />
                     <div className='custom-booking-content' >
