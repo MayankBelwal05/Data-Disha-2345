@@ -1,0 +1,168 @@
+/* Booking Section */
+.services-heading {
+    margin: 40px auto;
+}
+
+.services-span {
+    color: #29B6F6;
+}
+
+.services-heading:hover {
+    color: #29B6F6;
+    cursor: pointer;
+}
+
+.booking-heading-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.booking-heading-section-div {
+    width: 500px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.booking-heading-section-div:hover {
+    transform: scale(1.03);
+}
+
+.booking-image {
+    width: 500px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.booking-content {
+    padding: 0 20px 20px 20px;
+}
+
+.booking-content-first-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.booking-content-first-row-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.booking-content-first-row-div > p {
+    margin: 5px 10px;
+}
+
+.booking-button {
+    height: 40px;
+    font-size: 16px;
+    background-color: #29B6F6;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    color: black;
+}
+
+.booking-button:hover {
+    background-color: #0388f4;
+    cursor: pointer;
+}
+
+
+/* Pricing Section */
+.packages-section-with-heading {
+    margin-top: 100px;
+}
+
+.packages-section-with-heading > h1 {
+    margin: 40px auto;
+}
+
+.packages-section-with-heading > h1:hover {
+    color: #29B6F6;
+    cursor: pointer;
+}
+
+.packages-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.packages-section-card {
+    width: 300px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 20px 0;
+    transition: transform 0.5s;
+}
+
+.packages-section-card:hover {
+    transform: scale(1.03);
+}
+
+.packages-section-card-heading {
+    height: 50px;
+    background-color: #29B6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-now-button {
+    width: 80%;
+}
+
+
+/* Custom Booking Section */
+.custom-booking-section {
+    margin-top: 100px;
+}
+
+.custom-booking-section > h1 {
+    margin: 40px auto;
+}
+
+.custom-booking-section > h1:hover {
+    color: #29B6F6;
+    cursor: pointer;
+}
+
+.custom-booking-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.custom-booking-image {
+    width: 500px;
+    height: 320px;
+    transition: transform 0.5s;
+}
+
+.custom-booking-image:hover {
+    transform: scale(1.03);
+}
+
+.custom-booking-content {
+    width: 500px;
+    height: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    transition: transform 0.5s;
+}
+
+.custom-booking-content:hover {
+    transform: scale(1.03);
+}
+
+
