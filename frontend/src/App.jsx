@@ -1,12 +1,17 @@
 import './App.css'
-import BookingPage from './pages/BookingPage'
+import AllRoutes from './allRoutes/AllRoutes'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+
 
 function App() {
 
 
   return (
     <>
-     
+      <Navbar />
+      <AllRoutes />
+      <Footer />
     </>
   )
 }
