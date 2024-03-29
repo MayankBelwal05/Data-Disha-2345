@@ -1,4 +1,8 @@
 /* Booking Section */
+.booking-page {
+    margin-top: 100px;
+}
+
 .services-heading {
     margin: 40px auto;
 }
@@ -117,6 +121,10 @@
     width: 80%;
 }
 
+.price {
+    color: rgb(6, 255, 6);
+}
+
 
 /* Custom Booking Section */
 .custom-booking-section {
@@ -142,6 +150,7 @@
 .custom-booking-image {
     width: 500px;
     height: 320px;
+    border-radius: 10px;
     transition: transform 0.5s;
 }
 
@@ -158,6 +167,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid white;
+    border-radius: 10px;
     transition: transform 0.5s;
 }
 

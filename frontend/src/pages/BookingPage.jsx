@@ -1,15 +1,18 @@
 import './BookingPage.css'
 
+
 export default function BookingPage() {
 
-
-    
+    const handleClick = (e) => {
+        e.preventDefault()
+        // window.location.href = '/booking'
+    }
 
 
 
 
     return (
-        <div>
+        <div className='booking-page' >
             <h1 className='services-heading' >OUR <span className='services-span'>SERVICES</span></h1>
 
             {/* Heading Booking Images Sections */}
@@ -63,7 +66,7 @@ export default function BookingPage() {
                             <h3>For Birthdays</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1>&#x24;249.99</h1>
+                            <h1 className='price' >&#x24;249.99</h1>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
@@ -78,7 +81,7 @@ export default function BookingPage() {
                             <h3>For Weddings</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1>&#x24;899.99</h1>
+                            <h1 className='price'>&#x24;899.99</h1>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
@@ -93,7 +96,7 @@ export default function BookingPage() {
                             <h3>For Concerts</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1>&#x24;999.49</h1>
+                            <h1 className='price'>&#x24;999.49</h1>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
@@ -108,7 +111,7 @@ export default function BookingPage() {
                             <h3>For Others</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1>&#x24;749.99</h1>
+                            <h1 className='price'>&#x24;749.99</h1>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
                             <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
@@ -140,7 +143,7 @@ export default function BookingPage() {
                         </div>
                         <h3>Plan Your Special Day With Us</h3>
                         <p>Create unforgettable memories with your loved ones. Give us a chance and enjoy your dates to the fullest.</p>
-                        <button className='booking-button' >Create Your Custom Event</button>
+                        <button className='booking-button' onClick={e => handleClick(e)} >Create Your Custom Event</button>
                     </div>
                 </div>
             </div>
