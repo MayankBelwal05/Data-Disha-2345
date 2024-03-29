@@ -1,12 +1,13 @@
 import './App.css'
-import BookingPage from './pages/BookingPage'
+import AllRoutes from './allRoutes/AllRoutes'
+// import BookingPage from './pages/BookingPage'
 
 function App() {
 
 
   return (
     <>
-      <BookingPage />
+     <AllRoutes/>
     </>
   )
 }

@@ -2,13 +2,18 @@ const express = require("express")
 require("dotenv").config()
 const { connection } = require("./config/db")
 const { userRouter } = require("./router/user.route")
+const { eventRouter } = require("./router/event.route")
 const {auth} = require("./middleware/auth.middleware")
-
+const cors = require("cors")
 
 const app = express() 
 app.use(express.json())
+app.use(cors())
+
+//routes
 
 app.use("/users", userRouter)
+app.use("/events", eventRouter)
 
 app.get("/", (req, res) => {
 	res.json({ msg: "this is homepage" })
