@@ -1,0 +1,98 @@
+.footer {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items:start;
+    color: black;
+    background-color: #29b5f6e9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: left;
+    margin-top: 100px;
+}
+
+.footer-div1 {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-div1 > img {
+    width: 150px;
+    height: 100px;
+}
+
+.footer-div1-p {
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
+.footer-social-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.footer-social-icons > i {
+    font-size: 20px;
+    transition: transform 0.5s ease-in;
+}
+
+.footer-social-icons > i:hover {
+    cursor: pointer;
+    color: white;
+    transform: scale(1.4);
+}
+
+.footer-div2 {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+}
+
+.footer-div2-links {
+    color: black;
+    font-weight: 600;
+}
+
+.footer-div2-links:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.footer-div3 {
+    width: 20%;
+}
+
+.footer-div3 > h3 {
+    margin-bottom: 28px;
+}
+
+.footer-div3-span {
+    margin-right: 10px;
+}
+
+.footer-div3-span:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.footer-div4 {
+   width: 20%;
+}
+
+.footer-div4 > button, input {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 10px 10px 0;
+}
