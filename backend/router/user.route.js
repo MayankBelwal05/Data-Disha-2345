@@ -31,7 +31,7 @@ userRouter.post("/login", async (req, res) => {
 		if (user) {
 			bcrypt.compare(password, user.password, async (err, result) => {
 				if (result) {
-					res.status(200).send({ msg: "Login Sucessfull", "token": jwt.sign({ day4: "level2" }, "masai", { expiresIn: 3600 }) })
+					res.status(200).send({ msg: "Login Sucessfull", "token": jwt.sign({ day4: "level2" }, "masai") })
 				} else {
 					res.status(200).send({ msg: "wrong password" })
 					console.log(err)
@@ -47,7 +47,7 @@ userRouter.post("/login", async (req, res) => {
 })
 
 userRouter.get("/logout", (req, res) => {
-	const token = req.header.authorization
+	const token = req.headers.authorization?.split(" ")[1]
 	try {
 		blacklist.push(token)
 		res.status(200).json({ msg: "You have been logged out!" })
