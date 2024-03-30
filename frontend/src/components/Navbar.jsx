@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Navbar.css'
 
 export default function Navbar() {
 
+  const navigate = useNavigate();
 
+  const navigateToProfile = (e) => {
+    e.preventDefault()
+    navigate('/profile')
+  }
 
   return (
     <div className="navbar">
@@ -18,6 +23,7 @@ export default function Navbar() {
         <div className="navbar-buttons-div" >
             <button className="navbar-buttons" >Login</button>
             <button className="navbar-buttons" >Signup</button>
+            <button className="navbar-buttons" onClick={e => navigateToProfile(e)} >Profile</button>
         </div>
 
     </div>
