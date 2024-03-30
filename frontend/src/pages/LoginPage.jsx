@@ -17,8 +17,7 @@ import {
 } from "@chakra-ui/react";
 
 import axios from "axios";
-import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 // import { authLinLout } from "../redux/authSlice";
 import { Link } from "react-router-dom";
@@ -136,7 +135,7 @@ const Login = () => {
                                 </Button>
 
                                 <Text textAlign={"center"} color="black">
-                                    Don't have an account{" "}
+                                    Do not have an account{" "}
                                     <Text as={Link} to="/signup" color="black" fontWeight="bold">
                                         Signup
                                     </Text>
