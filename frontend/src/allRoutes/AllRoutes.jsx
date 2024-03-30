@@ -11,6 +11,8 @@ import ContactUsPage from '../pages/ContactUsPage'
 import CustomBookingForm from '../pages/CustomBookingForm'
 import Login from '../pages/LoginPage'
 import Signup from '../pages/SignupPage'
+import EventDetails from '../pages/EventDetails'
+import CreateEventForm from '../pages/CreateEventForm'
 
 export default function AllRoutes() {
 
@@ -21,6 +23,8 @@ export default function AllRoutes() {
             <Route path='/home' element={<HomePage/>} />
             <Route path='/booking' element={<BookingPage/>} />
             <Route path='/event' element={<EventPage/>} />
+            <Route path='/createEvent' element={<CreateEventForm/>}/>
+            <Route path="/events/:eventId" element={<EventDetails/>} />
             <Route path='/about' element={<AboutUsPage/>} />
             <Route path='/contact' element={<ContactUsPage/>} />
             <Route path='/customBooking' element={<CustomBookingForm/>} />
