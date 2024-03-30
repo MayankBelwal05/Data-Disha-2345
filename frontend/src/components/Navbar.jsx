@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Navbar.css'
 
 export default function Navbar() {
