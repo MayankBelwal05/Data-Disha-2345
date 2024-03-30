@@ -6,14 +6,13 @@ import EventPage from '../pages/EventPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import UserProfile from '../pages/UserProfile'
 import PaymentPage from '../pages/PaymentPage'
-import LoginSignUp from '../pages/LoginSignUp'
 import AboutUsPage from '../pages/AboutUsPage'
 import ContactUsPage from '../pages/ContactUsPage'
 import CustomBookingForm from '../pages/CustomBookingForm'
+import Login from '../pages/LoginPage'
+import Signup from '../pages/SignupPage'
 
 export default function AllRoutes() {
-
-
 
   return (
     <div>
@@ -27,7 +26,8 @@ export default function AllRoutes() {
             <Route path='/customBooking' element={<CustomBookingForm/>} />
             <Route path='/profile' element={<UserProfile/>} />
             <Route path='/payment' element={<PaymentPage/>} />
-            <Route path='/register' element={<LoginSignUp/>} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/register' element={<Signup/>} />
             <Route path='*' element={<NotFoundPage/>} />
         </Routes>
     </div>
