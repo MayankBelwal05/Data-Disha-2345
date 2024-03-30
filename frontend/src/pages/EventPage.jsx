@@ -1,11 +1,11 @@
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
-import loadingAnimation from "../../assets/animation/animation.json";
+import loadingAnimation from "../assets/animation/animation.json";
 import { FaSearch } from "react-icons/fa";
 import { TbCategory2 } from "react-icons/tb";
-import Container from "../../components/container/Container";
-import EventBanner from "../../components/EventBanner";
-import EventCard from "../../components/EventCard";
+import Container from "../components/container/Container";
+// import EventBanner from "../../components/EventBanner";
+import EventCard from "../components/EventCard";
 
 const EventPage = () => {
     const [searchTerm, setSearchTerm] = useState("");

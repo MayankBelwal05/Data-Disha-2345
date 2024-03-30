@@ -17,8 +17,7 @@ import {
 } from "@chakra-ui/react";
 
 import axios from "axios";
-import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 // import { authLinLout } from "../redux/authSlice";
 import { Link } from "react-router-dom";
@@ -28,7 +27,7 @@ import backgroundImage from "../assets/image/logi.jpg";
 
 const Login = () => {
     //   const [username, setUserName] = useState("");
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     // const auth = useSelector((state) => state.auth.auth);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -66,7 +65,7 @@ const Login = () => {
                     isClosable: true,
                 });
                 setTimeout(() => {
-                    navigate("/dashboard");
+                    navigate("/home");
                 }, 1000);
 
             } else {
@@ -88,7 +87,7 @@ const Login = () => {
     const closeModal = () => {
         setShowModal(false);
         if (modalMessage === "Login successful") {
-            navigate("/notes");
+            navigate("/home");
         }
     };
     return (
@@ -97,6 +96,7 @@ const Login = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             minHeight: "100vh",
+            marginTop: "100px"
         }}>
             <Container>
                 <Box
@@ -111,7 +111,7 @@ const Login = () => {
                             Login
                         </Heading>
                         <FormControl>
-                            <Stack spacing={5}>
+                            <Stack spacing={5} py={2}>
                                 <Input
                                     type="email"
                                     color="white"
@@ -135,7 +135,7 @@ const Login = () => {
                                 </Button>
 
                                 <Text textAlign={"center"} color="black">
-                                    Don't have an account{" "}
+                                    Do not have an account{" "}
                                     <Text as={Link} to="/signup" color="black" fontWeight="bold">
                                         Signup
                                     </Text>

@@ -1,9 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Navbar.css'
 
 export default function Navbar() {
 
+  const navigate = useNavigate();
 
+  const navigateToLogin = (e) => {
+    e.preventDefault()
+    navigate('/login')
+  }
+
+  const navigateToSignup = (e) => {
+    e.preventDefault()
+    navigate('/register')
+  }
+
+  const navigateToProfile = (e) => {
+    e.preventDefault()
+    navigate('/profile')
+  }
 
   return (
     <div className="navbar">
@@ -16,8 +31,9 @@ export default function Navbar() {
             <Link className="active-link" to='/contact'>Contact Us</Link>
         </div>
         <div className="navbar-buttons-div" >
-            <button className="navbar-buttons" >Login</button>
-            <button className="navbar-buttons" >Signup</button>
+            <button className="navbar-buttons" onClick={e => navigateToLogin(e)} >Login</button>
+            <button className="navbar-buttons" onClick={e => navigateToSignup(e)} >Signup</button>
+            <button className="navbar-buttons" onClick={e => navigateToProfile(e)} >Profile</button>
         </div>
 
     </div>
