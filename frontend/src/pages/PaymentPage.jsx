@@ -17,7 +17,7 @@ import {
   useDisclosure,
   Icon,
 } from '@chakra-ui/react';
-import { MdCheckCircle } from 'react-icons/md'; // Import the green checkmark icon
+import { MdCheckCircle } from 'react-icons/md'; 
 
 const PaymentPage = () => {
   const [billingCycle, setBillingCycle] = useState('annual');
@@ -30,7 +30,7 @@ const PaymentPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Assuming all fields are required for now
+    
     const form = e.target;
     const amount = form.elements['amount'].value;
     const cardNumber = form.elements['cardNumber'].value;
