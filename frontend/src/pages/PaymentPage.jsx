@@ -90,7 +90,7 @@ const PaymentPage = () => {
           </Stack>
         </form>
         
-        {/* Pop-up */}
+        
         <AlertDialog isOpen={isOpen} onClose={onClose} motionPreset="scale">
           <AlertDialogOverlay />
           <AlertDialogContent bg="green.500" color="white">
