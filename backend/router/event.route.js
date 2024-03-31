@@ -12,6 +12,7 @@ const eventRouter = express.Router()
 
 // POST Route     access("organizer", "admin"), 
 
+
 eventRouter.post("/", auth,async (req, res) => {
     const payload = req.body
     const userid = req.username
