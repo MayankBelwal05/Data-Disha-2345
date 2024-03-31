@@ -21,7 +21,7 @@ export default function Footer() {
             </div>
         </div>
         <div className='footer-div2' >
-            <h3>Important Links</h3>
+            <h3 className='footer-h3' >Important Links</h3>
             <Link className='footer-div2-links' to='/event'>Events</Link>
             <Link className='footer-div2-links' to='/booking'>Booking</Link>
             <Link className='footer-div2-links' to='/register'>Signup</Link>
@@ -29,13 +29,13 @@ export default function Footer() {
             <Link className='footer-div2-links' to='/profile'>Profile</Link>
         </div>
         <div className='footer-div3' >
-            <h3>Contact Us</h3>
+            <h3 className='footer-h3'>Contact Us</h3>
             <p><span className='footer-div3-span' ><i className="fa-solid fa-envelope"></i></span>info@vibevista.com</p>
             <p><span className='footer-div3-span'><i className="fa-solid fa-phone"></i></span>+91 1234567890</p>
             <p><span className='footer-div3-span'><i className="fa-solid fa-location-dot"></i></span>Kolkata-84, West Bengal</p>
         </div>
         <div className='footer-div4' >
-            <h3>Subscribe to our Newsletter</h3>
+            <h3 className='footer-h3'>Subscribe to our Newsletter</h3>
             <input type="text" placeholder='Enter Email Address' />
             <button>Subscribe</button>
             <p>Copyright &copy; 2024 VibeVista</p>
