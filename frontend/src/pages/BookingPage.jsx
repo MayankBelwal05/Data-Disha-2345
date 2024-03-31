@@ -30,8 +30,8 @@ export default function BookingPage() {
                                 <p>In Your Location</p>
                             </div>
                         </div>
-                        <h3>Plan Your Special Day With Us</h3>
-                        <p>Create unforgettable memories with your loved ones. Give us a chance and enjoy your dates to the fullest.</p>
+                        <h3 className='plan-with-us' >Plan Your Special Day With Us</h3>
+                        <p className='plan-with-us-p'>Create unforgettable memories with your loved ones. Give us a chance and enjoy your dates to the fullest.</p>
                         <button className='booking-button' >Order for Wedding Events</button>
                     </div>
                 </div>
@@ -49,8 +49,8 @@ export default function BookingPage() {
                                 <p>In Your Location</p>
                             </div>
                         </div>
-                        <h3>Plan Your Special Day With Us</h3>
-                        <p>Create unforgettable memories with your loved ones. Give us a chance and enjoy your dates to the fullest.</p>
+                        <h3 className='plan-with-us'>Plan Your Special Day With Us</h3>
+                        <p className='plan-with-us-p' >Create unforgettable memories with your loved ones. Give us a chance and enjoy your dates to the fullest.</p>
                         <button className='booking-button' >Order for Birthday Events</button>
                     </div>
                 </div>
@@ -63,60 +63,60 @@ export default function BookingPage() {
                 <div className='packages-section' >
                     <div className='packages-section-card' >
                         <div className='packages-section-card-heading' >
-                            <h3>For Birthdays</h3>
+                            <h3 style={{fontSize:"20px", fontWeight:"bolder"}}>For Birthdays</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1 className='price' >&#x24;249.99</h1>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
+                            <h1 style={{fontSize:"30px", fontWeight:"bolder"}} className='price' >&#x24;249.99</h1>
+                            <p style={{margin: '0 0 10px 0'}} ><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
+                            <p style={{margin: '0 0 15px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
                             <button className='booking-button book-now-button' >Book Now</button>
                         </div>
                     </div>
 
                     <div className='packages-section-card' >
                         <div className='packages-section-card-heading' >
-                            <h3>For Weddings</h3>
+                            <h3 style={{fontSize:"20px", fontWeight:"bolder"}}>For Weddings</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1 className='price'>&#x24;899.99</h1>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
+                            <h1 style={{fontSize:"30px", fontWeight:"bolder"}} className='price'>&#x24;899.99</h1>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
+                            <p style={{margin: '0 0 15px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
                             <button className='booking-button book-now-button' >Book Now</button>
                         </div>
                     </div>
 
                     <div className='packages-section-card' >
                         <div className='packages-section-card-heading' >
-                            <h3>For Concerts</h3>
+                            <h3 style={{fontSize:"20px", fontWeight:"bolder"}}>For Concerts</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1 className='price'>&#x24;999.49</h1>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
+                            <h1 style={{fontSize:"30px", fontWeight:"bolder"}} className='price'>&#x24;999.49</h1>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
+                            <p style={{margin: '0 0 15px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
                             <button className='booking-button book-now-button' >Book Now</button>
                         </div>
                     </div>
 
                     <div className='packages-section-card' >
                         <div className='packages-section-card-heading' >
-                            <h3>For Others</h3>
+                            <h3 style={{fontSize:"20px", fontWeight:"bolder"}} >For Others</h3>
                         </div>
                         <div className='packages-section-card-content' >
-                            <h1 className='price'>&#x24;749.99</h1>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
-                            <p><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
+                            <h1 style={{fontSize:"30px", fontWeight:"bolder"}} className='price'>&#x24;749.99</h1>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Full Services</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Decorations</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Music and Photos</p>
+                            <p style={{margin: '0 0 10px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Food and Drinks</p>
+                            <p style={{margin: '0 0 15px 0'}}><span><i style={{ color: "#29B6F6", fontSize: "20px", fontWeight: "bolder", marginRight: "8px" }} className="fa-solid fa-check"></i></span>Invitation Card</p>
                             <button className='booking-button book-now-button' >Book Now</button>
                         </div>
                     </div>
@@ -132,7 +132,7 @@ export default function BookingPage() {
                     <img className="custom-booking-image" src="https://img.freepik.com/free-photo/black-white-people-party-together_23-2147651899.jpg?t=st=1711642837~exp=1711646437~hmac=05471d3d9ce271ae03a9b6cc18aa9f2bba7a619aa01c2a059ac429d8b28fd7fa&w=996" alt="Custom Booking Image" />
                     <div className='custom-booking-content' >
                         <div className='booking-content-first-row' >
-                            <div className='booking-content-first-row-div' >
+                            <div style={{margin: '0 20px 0 0'}} className='booking-content-first-row-div' >
                                 <i className="fa-solid fa-calendar-days services-span"></i>
                                 <p>Book Your Date</p>
                             </div>
@@ -141,9 +141,9 @@ export default function BookingPage() {
                                 <p>In Your Location</p>
                             </div>
                         </div>
-                        <h3>Plan Your Special Day With Us</h3>
-                        <p>Create unforgettable memories with your loved ones. Give us a chance and enjoy your dates to the fullest.</p>
-                        <button className='booking-button' onClick={e => handleClick(e)} >Create Your Custom Event</button>
+                        <h3 className='plan-with-us'>Plan Your Special Day With Us</h3>
+                        <p className='plan-with-us-p'>Create unforgettable memories with your loved ones. Give us a chance and enjoy your dates to the fullest.</p>
+                        <button style={{margin: '20px 0'}} className='booking-button' onClick={e => handleClick(e)} >Create Your Custom Event</button>
                     </div>
                 </div>
             </div>

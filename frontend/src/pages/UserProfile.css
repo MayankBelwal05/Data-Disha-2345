@@ -1,9 +1,17 @@
 .user-profile {
-    margin: 120px auto ;
+    margin-top: 120px;
+    width: 100%;
+    background-color: #242424;
+    padding: 20px;
+}
+
+.user-details {
+    margin: 0 auto 100px auto;
     width: 70%;
     background-color: rgba(255, 255, 255, 0.2);
+    color: black;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 10px; 
     border: 1px solid white;
 }
 
@@ -11,12 +19,13 @@
     font-size: 30px;
     cursor: pointer;
     position: absolute;
-    left: 240px;
+    left: 270px;
+    color: white;
 }
 
 .user-profile-top-section {
     width: 90%;
-    height: 300px;
+    /* height: 300px; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -34,8 +43,15 @@
     line-height: 15px;
 }
 
+.user-profile-user-details > h2 {
+    font-size: 30px;
+    margin: 20px;
+}
+
 .user-profile-user-details > p {
     font-size: 20px;
+    margin: 20px;
+    color: white;
 }
 
 .profile-span {
@@ -51,9 +67,34 @@
     background-color: #29B6F6;
     color: white;
     font-size: 18px;
+    margin-left: 20px;
 }
 
 .logout-btn:hover {
     cursor: pointer;
     background-color: #0388f4;
+}
+
+
+@media (max-width: 920px) {
+    .user-profile {
+        margin-top: 120px;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        background-color: #242424;
+        padding: 20px;
+    }
+
+    .user-details {
+        height: auto;
+        padding: 20px;
+        margin: auto;
+        border: 1px solid  red;
+    }
+
+    .user-profile-top-section {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
