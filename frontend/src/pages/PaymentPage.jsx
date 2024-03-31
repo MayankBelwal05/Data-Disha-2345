@@ -29,7 +29,7 @@ const PaymentPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Check if all fields are filled
+    
     // Assuming all fields are required for now
     const form = e.target;
     const amount = form.elements['amount'].value;
