@@ -38,7 +38,7 @@ const PaymentPage = () => {
     const cvc = form.elements['cvc'].value;
 
     if (amount && cardNumber && expiry && cvc) {
-      // All fields are filled, open the pop-up
+      
       onOpen();
     } else {
      
