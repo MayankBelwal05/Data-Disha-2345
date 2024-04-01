@@ -5,6 +5,7 @@ const { userRouter } = require("./router/user.route")
 const { eventRouter } = require("./router/event.route")
 const {auth} = require("./middleware/auth.middleware")
 const cors = require("cors")
+const { messageRouter } = require("./router/message.route")
 
 const app = express() 
 app.use(express.json())
@@ -14,6 +15,8 @@ app.use(cors())
 
 app.use("/users", userRouter)
 app.use("/events", eventRouter)
+app.use("/message", messageRouter)
+
 
 app.get("/", (req, res) => {
 	res.json({ msg: "this is homepage" })

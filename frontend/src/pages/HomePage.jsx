@@ -1,14 +1,8 @@
-// import TeamCards from "../../components/cards/TeamCards";
-// import Booking from "../bookings/Booking";
 import NewsLetter from "./NewsLetter";
-// import Organizer from "./Organizer/Organizer";
-// import Banner from "./Banner";
-// import FeatureEvents from "./FeatureEvents";
-// import PopularEvents from "./PopularEvents";
 import MagicBanner from "./magicBanner/MagicBanner";
-// import Faqac from "../../pages/portfolio/faq/Faqac"
 import organizer from '../assets/organizer.jpg';
 import { Link } from "react-router-dom";
+import Gallery from "./gallery/gallery";
 
 
 
@@ -28,7 +22,7 @@ const Home = () => {
             </div>
             <div className='flex-1 bg-white md:-ml-20 p-12 rounded-md'>
               <h2 className='text-2xl text-dark_01 md:text-5xl font-semibold'>Host Your Event with Us</h2>
-              <p className='text-secondary my-4 text-justify'>
+              <p className=' my-4 text-justify text-black'>
                 Dream Craft Events: Where your vision meets perfection. From corporate conferences to intimate gatherings, we specialize in flawless event management. With our expertise, let us handle the stress while you enjoy every moment. Contact us today and let&apos;s create magic together.
               </p>
               <Link to='booking'>
@@ -50,12 +44,10 @@ const Home = () => {
 
 
 
-      {/* <Organizer />
-      <PopularEvents />
-
-      <Booking></Booking>
-      <TeamCards /> */}
+    <Gallery></Gallery>
       <NewsLetter></NewsLetter>
+
+      
     </div>
   );
 };

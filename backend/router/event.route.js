@@ -10,7 +10,8 @@
 
 // // access("creator", "viewer"),
 
-// // POST Route     access("organizer", "admin"), 
+// POST Route     access("organizer", "admin"), 
+
 
 // eventRouter.post("/", auth,async (req, res) => {
 //     const payload = req.body
