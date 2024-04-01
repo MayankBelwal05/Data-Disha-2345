@@ -91,7 +91,7 @@ const CreateEventForm = () => {
         </h2>
       </div>
       <div>
-        <form onSubmit={onSubmit} className="flex flex-col gap-5 py-5 md:py-10">
+      <form onSubmit={onSubmit} className="flex flex-col gap-5 py-5 md:py-10">
           <div className="flex flex-col gap-5 md:flex-row">
             <div className="w-full">
               <input
@@ -100,7 +100,7 @@ const CreateEventForm = () => {
                 name="title"
                 value={formData.title}
                 onChange={handleInputChange}
-                className="input-field w-full"
+                className="input-field w-full outline-none"
               />
             </div>
             <div className="w-full">
@@ -108,7 +108,7 @@ const CreateEventForm = () => {
                 name="categoryId"
                 value={formData.categoryId}
                 onChange={handleInputChange}
-                className="input-field w-full"
+                className="input-field w-full outline-none"
               >
                 <option value="">Category</option>
                 {/* Options */}
@@ -123,7 +123,7 @@ const CreateEventForm = () => {
                 name="description"
                 value={formData.description}
                 onChange={handleInputChange}
-                className="textarea rounded-2xl w-full h-72"
+                className="textarea rounded-2xl w-full h-72 outline-none"
               />
             </div>
 
@@ -170,67 +170,103 @@ const CreateEventForm = () => {
           </div>
 
           <div className="flex flex-col gap-5 md:flex-row">
-            <div className="w-full">
+            <div className="w-full flex-center h-[54px] overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+              <img
+                src="/icons/location-grey.svg"
+                alt="location"
+                className="w-[24px] h-[24px]"
+              />
               <input
                 type="text"
                 placeholder="Event location or Online"
                 name="location"
                 value={formData.location}
                 onChange={handleInputChange}
-                className="input-field w-full"
+                className="input-field w-full outline-none"
               />
             </div>
-            <div className="w-full">
+            <div className="w-full flex-center h-[54px] overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+              <img
+                src="/icons/rupee.svg"
+                alt="rupee"
+                className="w-[24px] h-[24px]"
+              />
               <input
-                type="text"
+                type="number"
                 placeholder="Price"
                 name="price"
                 value={formData.price}
                 onChange={handleInputChange}
-                className="input-field w-full"
+                className="input-field w-full outline-none"
               />
-              <label>
+              <div className="flex items-center">
+                <label
+                  htmlFor="isFree"
+                  className="whitespace-nowrap pr-3 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Free Ticket
+                </label>
                 <input
                   type="checkbox"
                   name="isFree"
                   checked={formData.isFree}
                   onChange={handleInputChange}
+                  className="mr-2 h-5 w-5 border-2 border-primary-500"
                 />
-                Free Ticket
-              </label>
+              </div>
             </div>
           </div>
 
           <div className="flex flex-col gap-5 md:flex-row">
-            <div className="w-full">
+            <div className="w-full flex-center h-[54px] overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+              <img
+                src="/icons/calendar-dark.svg"
+                alt="calendar"
+                className="w-[24px] h-[24px]"
+              />
+              <p className="ml-3 whitespace-nowrap text-grey-600">
+                Start Date:
+              </p>
+
               <input
                 type="datetime-local"
                 name="startDateTime"
                 value={formData.startDateTime}
                 onChange={handleInputChange}
-                className="input-field w-full"
+                className="input-field w-full outline-none"
               />
             </div>
-            <div className="w-full">
+            <div className="w-full flex-center h-[54px] overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+              <img
+                src="/icons/calendar-dark.svg"
+                alt="calendar"
+                className="w-[24px] h-[24px]"
+              />
+              <p className="ml-3 whitespace-nowrap text-grey-600">End Date:</p>
               <input
                 type="datetime-local"
                 name="endDateTime"
                 value={formData.endDateTime}
                 onChange={handleInputChange}
-                className="input-field w-full"
+                className="input-field w-full outline-none"
               />
             </div>
           </div>
 
           <div className="flex flex-col gap-5 md:flex-row">
-            <div className="w-full">
+            <div className="w-full flex-center h-[54px] overflow-hidden rounded-full bg-grey-50 px-4 py-2">
+              <img
+                src="/icons/link.svg"
+                alt="location"
+                className="w-[24px] h-[24px]"
+              />
               <input
                 type="text"
                 placeholder="URL"
                 name="url"
                 value={formData.url}
                 onChange={handleInputChange}
-                className="input-field w-full"
+                className="input-field w-full outline-none"
               />
             </div>
             {/* Other fields */}

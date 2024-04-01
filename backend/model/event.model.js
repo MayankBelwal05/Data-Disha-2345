@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const eventSchema = mongoose.Schema({
+const eventSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String },
     location: { type: String },
@@ -13,14 +13,11 @@ const eventSchema = mongoose.Schema({
     isFree: { type: Boolean, default: false },
     url: { type: String },
     category: { type: Schema.Types.ObjectId, ref: 'Category' },
-    userID: { type: String },
-    organizer: { type: String, ref: 'User' }
-}, {
-    versionKey: false
+    organizer: { type: Schema.Types.ObjectId, ref: 'User' }
 });
-
-const eventModel = mongoose.model('Event', eventSchema);
+  
+const EventModel = mongoose.model("Event", eventSchema);
 
 module.exports = {
-    eventModel
+    EventModel
 }
