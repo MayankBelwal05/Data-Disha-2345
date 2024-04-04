@@ -20,7 +20,7 @@ export default function Navbar() {
     navigate("/profile");
   };
 
-  const isSmallScreen = window.innerWidth <= 768; // Adjust breakpoint as needed
+  const isSmallScreen = window.innerWidth <= 768;
 
   return (
     <Flex
