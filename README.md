@@ -21,6 +21,7 @@ The EventPlanner website is a comprehensive platform designed to simplify event 
 
 ## Technology Stack
 - React: A JavaScript library for building user interfaces.
+- Chakra UI: A simple, modular and accessible component library that provides building blocks for React applications.
 - Node.js: A JavaScript runtime for building server-side applications.
 - MongoDB: A NoSQL database for storing and managing event data.
 - Express.js: A web application framework for Node.js, used for building RESTful APIs.
