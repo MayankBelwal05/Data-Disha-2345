@@ -1,6 +1,5 @@
-// import Lottie from "lottie-react";
+
 import { useEffect, useState } from "react";
-// import loadingAnimation from "../assets/animation/animation.json";
 import { FaSearch } from "react-icons/fa";
 import { TbCategory2 } from "react-icons/tb";
 import Container from "../components/container/Container";
@@ -10,8 +9,8 @@ const EventPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [allEvents, setAllEvents] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [eventsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -21,7 +20,7 @@ const EventPage = () => {
           method: "GET",
           headers: {
             "Content-type": "application/json",
-            Authorization: `${token}`,
+            // Authorization: `${token}`,
           },
         });
         if (!response.ok) {
@@ -31,52 +30,34 @@ const EventPage = () => {
 
         console.log(eventData);
         setAllEvents(eventData.events);
-
-        // console.log(eventData.events);
+        setFilteredEvents(eventData.events);
       } catch (error) {
         console.log(error);
-        // setError(error);
       }
-      // finally {
-      //     setIsLoading(false);
-      // }
     };
 
     fetchEvents();
   }, []);
 
-  useEffect(() => {
-      setFilteredEvents(allEvents || []);
-  }, [allEvents]);
+  const indexOfLastEvent = currentPage * eventsPerPage;
+  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+  const currentEvents = filteredEvents.slice(indexOfFirstEvent, indexOfLastEvent);
 
-  const technology = allEvents.filter(item => item.category === 'technology')
-  const health = allEvents.filter(item => item.category === 'health')
-  const business = allEvents.filter(item => item.category === 'business')
-  const others = allEvents.filter(item => item.category === 'others')
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleSearch = (e) => {
-      e.preventDefault();
-      const searchResult = allEvents?.filter((event) =>
-          event.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      console.log(searchResult);
-      setFilteredEvents(searchResult);
+    e.preventDefault();
+    const searchResult = allEvents.filter((event) =>
+      event.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    console.log(searchResult);
+    setFilteredEvents(searchResult);
   };
 
-  // if (isLoading) {
-  //     return (
-  //         <Lottie
-  //             className="flex justify-center items-center min-h-[70%]"
-  //             animationData={loadingAnimation} // Assuming this is the correct path to your animation data
-  //             loop
-  //             autoplay
-  //         />
-  //     );
-  // }
-
-  // if (error) {
-  //     return <p>Error loading events: {error.message}</p>;
-  // }
+  const handleCategoryFilter = (category) => {
+    const filteredByCategory = allEvents.filter((event) => event.category.name === category);
+    setFilteredEvents(filteredByCategory);
+  };
 
   return (
     <div>
@@ -122,25 +103,43 @@ const EventPage = () => {
                 </button>
                 <button
                   className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl border-b"
-                  onClick={() => setFilteredEvents(technology)}
+                  onClick={() => handleCategoryFilter("Music")}
+                >
+                  Music
+                </button>
+                <button
+                  className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl border-b"
+                  onClick={() => handleCategoryFilter("Sports")}
+                >
+                  Sports
+                </button>
+                <button
+                  className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl border-b"
+                  onClick={() => handleCategoryFilter("Dance")}
+                >
+                  Dance
+                </button>
+                <button
+                  className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl border-b"
+                  onClick={() => handleCategoryFilter("Technology")}
                 >
                   Technology
                 </button>
                 <button
                   className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl border-b"
-                  onClick={() => setFilteredEvents(health)}
-                >
-                  Health
-                </button>
-                <button
-                  className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl border-b"
-                  onClick={() => setFilteredEvents(business)}
+                  onClick={() => handleCategoryFilter("Business")}
                 >
                   Business
                 </button>
                 <button
+                  className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl border-b"
+                  onClick={() => handleCategoryFilter("Health")}
+                >
+                  Health
+                </button>
+                <button
                   className="block w-full text-left p-5 hover:bg-primary-500 hover:text-white text-xl"
-                  onClick={() => setFilteredEvents(others)}
+                  onClick={() => handleCategoryFilter("Others")}
                 >
                   Others
                 </button>
@@ -150,10 +149,25 @@ const EventPage = () => {
 
           {/* cards */}
           <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {filteredEvents?.map((event, index) => (
+            {currentEvents.map((event, index) => (
               <EventCard key={index} event={event}></EventCard>
             ))}
           </div>
+        </div>
+        {/* Pagination */}
+        <div className="flex justify-center items-center mt-10">
+          <ul className="flex justify-center items-center space-x-2">
+            {[...Array(Math.ceil(filteredEvents.length / eventsPerPage))].map((_, index) => (
+              <li key={index}>
+                <button
+                  className="px-3 py-1 rounded-md bg-gray-200 hover:bg-gray-300 focus:outline-none"
+                  onClick={() => paginate(index + 1)}
+                >
+                  {index + 1}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </div>

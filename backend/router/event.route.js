@@ -58,15 +58,44 @@ eventRouter.post('/', auth, access("organizer", "admin"), async (req, res) => {
     }
 });
 
-eventRouter.get('/', auth, async(req, res) => {
+eventRouter.get('/', async (req, res) => {
     try {
-        const events = await EventModel.find();
-        res.status(200).json({ msg: "All the events", events});
+        let { search, sortBy, category, page, limit } = req.query;
+        page = parseInt(page) || 1;
+        limit = parseInt(limit) || 10;
+        const skip = (page - 1) * limit;
 
+        let query = {};
+
+        // Search
+        if (search) {
+            query.title = { $regex: new RegExp(search, 'i') };
+        }
+
+        // Category filter
+        if (category) {
+            query.category = category;
+        }
+
+        // Sorting
+        let sortQuery = {};
+        if (sortBy) {
+            const [sortField, sortOrder] = sortBy.split(':');
+            sortQuery[sortField] = sortOrder === 'desc' ? -1 : 1;
+        }
+
+        const events = await EventModel.find(query)
+            .sort(sortQuery)
+            .skip(skip)
+            .limit(limit)
+            .populate({ path: 'organizer', model: UserModel, select: '_id username' })
+            .populate({ path: 'category', model: CategoryModel, select: '_id name' });
+
+        res.status(200).json({ msg: "All the events", events });
     } catch (err) {
-        res.status(500).json({ err });
-    }
-})
+        res.status(500).json({ err});
+ }
+});
 
 eventRouter.get('/:eventId', async(req, res) => {
 

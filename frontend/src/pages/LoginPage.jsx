@@ -73,7 +73,7 @@ const Login = () => {
                     isClosable: true,
                 });
                 setTimeout(() => {
-                    navigate("/home");
+                    navigate("/");
                 }, 1000);
 
             } else {
