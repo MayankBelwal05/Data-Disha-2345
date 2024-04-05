@@ -32,7 +32,6 @@ Fullstack
 ## Deployed App
 Frontend: [https://data-disha-2345-ten.vercel.app/]
 Backend: [https://data-disha-2345-9rwv.onrender.com/]
-Database: [Database Deployment Link]
 
 ## Directory Structure
 Data-Disha-2345/
@@ -56,11 +55,7 @@ Data-Disha-2345/
 
 ![123465](https://github.com/MayankBelwal05/Data-Disha-2345/assets/147751671/f22dddb6-6e9a-425f-b953-96ee0d1919a7)
 
-[Attach a very short video walkthrough of all of the features [1 - 3 minutes]]
 
-## Video Walkthrough of the codebase
-
-[Attach a very short video walkthrough of the codebase [1 - 5 minutes]]
 
 ## Features
 - Booking events: Users can browse and book events available on the platform.
