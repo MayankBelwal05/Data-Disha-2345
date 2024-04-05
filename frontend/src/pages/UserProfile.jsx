@@ -9,7 +9,7 @@ export default function UserProfile() {
 
   const backToHome = (e) => {
     e.preventDefault();
-    navigate("/home");
+    navigate("/");
   };
 
   const handleLogout = (e) => {

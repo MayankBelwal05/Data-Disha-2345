@@ -21,6 +21,8 @@ export default function Navbar() {
     navigate("/profile");
   };
 
+  console.log(localStorage.getItem("token") != null);
+
   const isSmallScreen = window.innerWidth <= 768;
 
   return (
@@ -83,7 +85,12 @@ export default function Navbar() {
           <MenuList>
             <MenuItem onClick={(e) => navigateToLogin(e)}>Login</MenuItem>
             <MenuItem onClick={(e) => navigateToSignup(e)}>Signup</MenuItem>
-            <MenuItem onClick={(e) => navigateToProfile(e)}>Profile</MenuItem>
+            {
+              localStorage.getItem("token") !== null && (
+                <MenuItem onClick={(e) => navigateToProfile(e)}>Profile</MenuItem>
+              )
+            }
+
             <MenuItem>
               <Link className="hover:text-white font-bold" to="/home">
                 Home
@@ -118,7 +125,31 @@ export default function Navbar() {
         gap="10px"
         display={!isSmallScreen ? "flex" : "none"}
       >
-        <Button
+      
+        {
+          localStorage.getItem("token") !== null ? (
+            <Button
+              className="navbar-buttons"
+              onClick={(e) => navigateToProfile(e)}
+              height="40px"
+              fontSize="16px"
+              bgColor="#29B6F6"
+              borderRadius="7px"
+              px="10px"
+              color="black"
+              border="1px solid black"
+              fontWeight="500"
+              _hover={{
+                bgColor: "#0388f4",
+                color: "white",
+                border: "1px solid white",
+              }}
+              display={{ base: "none", md: "flex" }}
+            >
+              Profile
+            </Button>
+          ):<>
+            <Button
           className="navbar-buttons"
           onClick={(e) => navigateToLogin(e)}
           height="40px"
@@ -158,26 +189,9 @@ export default function Navbar() {
         >
           Signup
         </Button>
-        <Button
-          className="navbar-buttons"
-          onClick={(e) => navigateToProfile(e)}
-          height="40px"
-          fontSize="16px"
-          bgColor="#29B6F6"
-          borderRadius="7px"
-          px="10px"
-          color="black"
-          border="1px solid black"
-          fontWeight="500"
-          _hover={{
-            bgColor: "#0388f4",
-            color: "white",
-            border: "1px solid white",
-          }}
-          display={{ base: "none", md: "flex" }}
-        >
-          Profile
-        </Button>
+          </>
+        }
+
       </Flex>
     </Flex>
   );

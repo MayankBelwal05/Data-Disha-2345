@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Container from "../components/container/Container";
+import { useNavigate } from "react-router-dom";
 
 const CreateEventForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ const CreateEventForm = () => {
     imageUrl: "",
     organizer: "" // Update to hold user ID
   });
+
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [newCategoryInput, setNewCategoryInput] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -106,6 +109,10 @@ const CreateEventForm = () => {
         imageUrl: null,
         organizer: "" // Reset organizer ID
       });
+      setTimeout(() => {
+        navigate("/events");
+      }, 1000)
+
     } catch (error) {
       console.log(error);
     } finally {
@@ -187,7 +194,7 @@ const CreateEventForm = () => {
                 {formData.imageUrl ? (
                   <div className="flex h-full w-full flex-1 justify-center">
                     <img
-                      src= ""
+                      src=""
                       alt="image"
                       width={250}
                       height={250}
