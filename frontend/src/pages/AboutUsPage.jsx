@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-import bg from "../assets/about/istockphoto-1137054887-2048x2048.jpg";
 import img1 from "../assets/about/events.jpg";
 import img2 from "../assets/about/food.jpg";
 import img3 from "../assets/about/hobby.jpg";
@@ -132,7 +131,8 @@ export default function AboutUsPage() {
       {/* <Add></Add> */}
       
     </div>
-
+    <div className="my-5"><h1 className="text-3xl lg:text-5xl font-bold text-black-300">Our Team</h1></div>
+            <div className="my-5"><h1 className="text-2xl lg:text-2xl  text-slate-500">For InnovateSphere - Tech & Beyond Summit</h1></div>
     <TeamCards></TeamCards>
     </div>
   )

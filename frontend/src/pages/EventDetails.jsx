@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import loadingAnimation from "../assets/animation/animation.json";
 import Container from "../components/container/Container";
 
@@ -94,6 +94,11 @@ const EventDetails = () => {
     navigate('/events');
   }
 
+  const handleBuyTicket = (e) => {
+    e.preventDefault();
+    navigate('/payment')
+  }
+
   return (
     <Container>
       <i style={{color: "black", position: "absolute", left: "10px"}} onClick={e => backToEventPage(e)} className="fa-solid fa-arrow-left-long back-arrow"></i>
@@ -127,7 +132,7 @@ const EventDetails = () => {
               </div>
             </div>
 
-            <button className="bg-primary-500 text-green-50 rounded-full h-[54px] w-[120px] p-regular-16 hover:bg-primary-60">
+            <button onClick={e => handleBuyTicket(e)} className="bg-primary-500 text-green-50 rounded-full h-[54px] w-[120px] p-regular-16 hover:bg-primary-60">
               Buy Ticket
             </button>
 

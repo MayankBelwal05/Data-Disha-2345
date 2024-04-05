@@ -19,8 +19,8 @@ export default function AllRoutes() {
   return (
     <div>
         <Routes>
-            <Route path='/' element={<LandingPage/>} />
-            <Route path='/home' element={<HomePage/>} />
+            {/* <Route path='/' element={<LandingPage/>} /> */}
+            <Route path='/' element={<HomePage/>} />
             <Route path='/booking' element={<BookingPage/>} />
             <Route path='/events' element={<EventPage/>} />
             <Route path='/createEvent' element={<CreateEventForm/>}/>
