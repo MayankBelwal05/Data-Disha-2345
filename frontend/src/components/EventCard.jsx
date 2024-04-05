@@ -1,9 +1,6 @@
-import { FaCalendarAlt, FaFacebook, FaLinkedinIn } from "react-icons/fa";
-import { BsDiagram3, BsTwitterX } from "react-icons/bs";
-import { CiLocationOn } from "react-icons/ci";
+
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+
 
 const EventCard = ({ event }) => {
   const dateFormat = new Date(event.startDateTime);
@@ -24,7 +21,7 @@ const EventCard = ({ event }) => {
         style={{
           backgroundImage: `url(${
             event.imageUrl
-              ? Event.imageUrl
+              ? event.imageUrl
               : "https://img.freepik.com/free-vector/flat-design-business-party-illustration_23-2149481435.jpg?w=900"
           })`,
         }}
@@ -41,7 +38,7 @@ const EventCard = ({ event }) => {
               "FREE"
             ) : (
               <>
-                { "₹ " + event.price}
+                {event.price}
               </>
             )}
           </span>
