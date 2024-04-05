@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router'
 import './BookingPage.css'
 
 
 export default function BookingPage() {
 
+    const navigate = useNavigate();
+
     const handleClick = (e) => {
         e.preventDefault()
-        // window.location.href = '/booking'
+        navigate('/createEvent');
     }
 
 

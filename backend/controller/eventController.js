@@ -6,21 +6,20 @@ const { CategoryModel } = require('../model/category.model');
 const getCategoryByName = async (name) => {
   return CategoryModel.findOne({ name: { $regex: name, $options: 'i' } });
 }
-
 // Function to populate event with organizer and category details
-const populateEvent = (query) => {
-  return query
-    .populate({ path: 'organizer', model: UserModel, select: '_id firstName lastName' })
-    .populate({ path: 'category', model: CategoryModel, select: '_id name' });
-}
+// const populateEvent = (query) => {
+//   return query
+//     .populate({ path: 'organizer', model: UserModel, select: '_id firstName lastName' })
+//     .populate({ path: 'category', model: CategoryModel, select: '_id name' });
+// }
 
 // Function to create a new event
-exports.createEvent = async ({ userId, event, path }) => {
+exports.createEvent = async ({ event }) => {
   try {
-    const organizer = await UserModel.findById(userId);
-    if (!organizer) throw new Error('Organizer not found');
+    // const organizer = await UserModel.findById(userId);
+    // if (!organizer) throw new Error('Organizer not found');
 
-    const newEvent = await EventModel.create({ ...event, category: event.categoryId, organizer: userId });
+    const newEvent = await EventModel.create({ event });
     return newEvent;
   } catch (error) {
     throw error;

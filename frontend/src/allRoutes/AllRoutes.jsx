@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 import LandingPage from '../pages/LandingPage'
 import BookingPage from '../pages/BookingPage'
-import EventPage from '../pages/EventPage'
 import NotFoundPage from '../pages/NotFoundPage'
 import UserProfile from '../pages/UserProfile'
 import PaymentPage from '../pages/PaymentPage'
@@ -13,6 +12,7 @@ import Login from '../pages/LoginPage'
 import Signup from '../pages/SignupPage'
 import EventDetails from '../pages/EventDetails'
 import CreateEventForm from '../pages/CreateEventForm'
+import EventPage from '../pages/EventPage'
 
 export default function AllRoutes() {
 
@@ -22,7 +22,7 @@ export default function AllRoutes() {
             <Route path='/' element={<LandingPage/>} />
             <Route path='/home' element={<HomePage/>} />
             <Route path='/booking' element={<BookingPage/>} />
-            <Route path='/event' element={<EventPage/>} />
+            <Route path='/events' element={<EventPage/>} />
             <Route path='/createEvent' element={<CreateEventForm/>}/>
             <Route path="/events/:eventId" element={<EventDetails/>} />
             <Route path='/about' element={<AboutUsPage/>} />

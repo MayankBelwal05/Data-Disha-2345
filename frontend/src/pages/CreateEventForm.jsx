@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Container from "../components/container/Container";
 
@@ -10,15 +10,29 @@ const CreateEventForm = () => {
     location: "",
     startDateTime: "",
     endDateTime: "",
-    categoryId: "",
+    category: "", // Update to hold category ID
     price: "",
     isFree: false,
     url: "",
-    imageUrl: null,
+    imageUrl: "",
+    organizer: "" // Update to hold user ID
   });
-  const [errorMessage, setErrorMessage] = useState("");
-  const [imageUrl, setImageUrl] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [newCategoryInput, setNewCategoryInput] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/categories");
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -27,57 +41,73 @@ const CreateEventForm = () => {
 
     setFormData({ ...formData, [inputName]: inputValue });
 
-    if (type === "file" && files && files[0]) {
-      setImageUrl(URL.createObjectURL(files[0]));
+    // if (type === "file" && files && files[0]) {
+    //   const imageUrl = URL.createObjectURL(files[0]);
+    //   setFormData({ ...formData, imageUrl });
+    // }
+  };
+
+  const handleCategoryChange = (e) => {
+    const selectedCategoryId = e.target.value; // Get the selected category ID
+    setFormData({ ...formData, category: selectedCategoryId }); // Update the form data with the selected category ID
+  };
+
+  const handleNewCategorySubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await axios.post("http://localhost:8080/categories", {
+        name: newCategoryInput,
+      });
+
+      // After creating the new category, update the categories state with the new category
+      setCategories([...categories, response.data]);
+
+      // Set the form data's category field to the ID of the newly created category
+      setFormData({ ...formData, category: response.data._id });
+
+      // Reset the new category input
+      setNewCategoryInput("");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setErrorMessage("");
+
+    const token = localStorage.getItem("token");
+
+    console.log(token);
+    console.log(formData);
 
     try {
-      const formDataToSend = new FormData();
-      for (const key in formData) {
-        formDataToSend.append(key, formData[key]);
-      }
+      const response = await axios.post(
+        "http://localhost:8080/events",
+        formData,
+        { headers: { Authorization: `${token}` } } // Include token in request headers
+      );
+      console.log(response);
 
-      const response = await axios.post("/events", formDataToSend, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      console.log("Event created successfully:", response.data);
-      // Reset form after successful submission
       setFormData({
         title: "",
         description: "",
         location: "",
         startDateTime: "",
         endDateTime: "",
-        categoryId: "",
+        category: "",
         price: "",
         isFree: false,
         url: "",
         imageUrl: null,
+        organizer: "" // Reset organizer ID
       });
-      setImageUrl(null);
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.errors) {
-        const errorMessages = error.response.data.errors.map((err) => err.msg);
-        setErrorMessage(errorMessages.join(", "));
-      } else if (
-        error.response &&
-        error.response.data &&
-        error.response.data.error
-      ) {
-        setErrorMessage(error.response.data.error);
-      } else {
-        console.error("Error submitting event:", error);
-        setErrorMessage("Failed to submit event");
-      }
+      console.log(error);
     } finally {
       setIsSubmitting(false);
     }
@@ -91,7 +121,7 @@ const CreateEventForm = () => {
         </h2>
       </div>
       <div>
-      <form onSubmit={onSubmit} className="flex flex-col gap-5 py-5 md:py-10">
+        <form onSubmit={onSubmit} className="flex flex-col gap-5 py-5 md:py-10">
           <div className="flex flex-col gap-5 md:flex-row">
             <div className="w-full">
               <input
@@ -105,14 +135,33 @@ const CreateEventForm = () => {
             </div>
             <div className="w-full">
               <select
-                name="categoryId"
-                value={formData.categoryId}
-                onChange={handleInputChange}
+                name="category"
+                value={formData.category}
+                onChange={handleCategoryChange}
                 className="input-field w-full outline-none"
               >
                 <option value="">Category</option>
-                {/* Options */}
+                {categories.map((category) => (
+                  <option key={category._id} value={category._id}>
+                    {category.name}
+                  </option>
+                ))}
+                <option value="addNewCategory">Add New Category</option>
               </select>
+              {formData.category === "addNewCategory" && (
+                <form onSubmit={handleNewCategorySubmit}>
+                  <input
+                    type="text"
+                    placeholder="New Category Name"
+                    value={newCategoryInput}
+                    onChange={(e) => setNewCategoryInput(e.target.value)}
+                    className="input-field w-full outline-none mt-2"
+                  />
+                  <button type="submit" className="button mt-2">
+                    Add Category
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 
@@ -126,46 +175,47 @@ const CreateEventForm = () => {
                 className="textarea rounded-2xl w-full h-72 outline-none"
               />
             </div>
-
-            <div className="flex-center bg-dark-3 flex h-72 cursor-pointer flex-col overflow-hidden rounded-xl bg-grey-50 w-full">
-              {/* File input */}
-              <input
-                id="fileInput"
-                type="file"
-                name="imageUrl"
-                onChange={handleInputChange}
-                className="hidden" // Hide the file input
-              />
-              {/* Display area */}
-              {imageUrl ? (
-                <div className="flex h-full w-full flex-1 justify-center ">
-                  <img
-                    src={imageUrl}
-                    alt="image"
-                    width={250}
-                    height={250}
-                    className="w-full object-cover object-center"
-                  />
-                </div>
-              ) : (
-                <div className="flex-center flex-col py-5 text-grey-500">
-                  <img
-                    src="/icons/upload.svg"
-                    width={77}
-                    height={77}
-                    alt="file upload"
-                  />
-                  <h3 className="mb-2 mt-2">Drag photo here</h3>
-                  <p className="p-medium-12 mb-4">SVG, PNG, JPG</p>
-                  <button
-                    type="button"
-                    className="rounded-full bg-primary-500 px-8 py-3 text-white"
-                    onClick={() => document.getElementById("fileInput").click()} // Click event to trigger file input
-                  >
-                    Select from computer
-                  </button>
-                </div>
-              )}
+            <div className="w-full">
+              <div className="flex-center bg-dark-3 flex h-72 cursor-pointer flex-col overflow-hidden rounded-xl bg-grey-50 w-full">
+                <input
+                  id="fileInput"
+                  type="file"
+                  name="imageUrl"
+                  onChange={handleInputChange}
+                  className="hidden"
+                />
+                {formData.imageUrl ? (
+                  <div className="flex h-full w-full flex-1 justify-center">
+                    <img
+                      src= ""
+                      alt="image"
+                      width={250}
+                      height={250}
+                      className="w-full object-cover object-center"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex-center flex-col py-5 text-grey-500">
+                    <img
+                      src="/icons/upload.svg"
+                      width={77}
+                      height={77}
+                      alt="file upload"
+                    />
+                    <h3 className="mb-2 mt-2">Drag photo here</h3>
+                    <p className="p-medium-12 mb-4">SVG, PNG, JPG</p>
+                    <button
+                      type="button"
+                      className="rounded-full bg-primary-500 px-8 py-3 text-white"
+                      onClick={() =>
+                        document.getElementById("fileInput").click()
+                      }
+                    >
+                      Select from computer
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -227,7 +277,6 @@ const CreateEventForm = () => {
               <p className="ml-3 whitespace-nowrap text-grey-600">
                 Start Date:
               </p>
-
               <input
                 type="datetime-local"
                 name="startDateTime"
@@ -279,8 +328,6 @@ const CreateEventForm = () => {
           >
             {isSubmitting ? "Submitting..." : "Submit Event"}
           </button>
-
-          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         </form>
       </div>
     </Container>
@@ -288,3 +335,4 @@ const CreateEventForm = () => {
 };
 
 export default CreateEventForm;
+
