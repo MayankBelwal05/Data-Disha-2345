@@ -8,6 +8,11 @@ const { userModel } = require("../model/user.model")
 
 const eventRouter = express.Router()
 
+eventRouter.get("/", (req, res) => {
+	res.json({ msg: "this is event test route" })
+})
+
+
 // access("creator", "viewer"),
 
 // POST Route     access("organizer", "admin"), 

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import './Navbar.css'
+import logo from "../assets/VF.png";
 
 export default function Navbar() {
 
@@ -22,7 +23,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-        <img className="logo" src="https://img.freepik.com/free-vector/gradient-quill-pen-design-template_23-2149837194.jpg?t=st=1711694376~exp=1711697976~hmac=65938d95ced59d27f281e3c8372388fb919c3f2e78073bcab5a463babe79c65f&w=740" alt="logo" />
+        <img className="logo" src={logo} alt="logo" />
         <div className="navbar-links" >
             <Link className="active-link" to='/home'>Home</Link>
             <Link className="active-link" to='/event'>Events</Link>
