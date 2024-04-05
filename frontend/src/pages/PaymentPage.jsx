@@ -16,7 +16,8 @@ import {
   useDisclosure,
   Icon,
 } from '@chakra-ui/react';
-import { MdCheckCircle } from 'react-icons/md'; 
+import { MdCheckCircle } from 'react-icons/md';
+import img1 from "../assets/about/events.jpg";
 
 const PaymentPage = () => {
   const [billingCycle, setBillingCycle] = useState('annual');
@@ -47,13 +48,14 @@ const PaymentPage = () => {
 
   return (
     <Box
-      backgroundImage="url('https://www.tamarindglobal.com/images/events/events.jpg')" 
+      backgroundImage="url('https://img.freepik.com/free-vector/flat-background-knowledge-day-celebration_23-2150610658.jpg?w=900')" 
       backgroundSize="cover"
       backgroundPosition="center"
       minHeight="100vh"
       display="flex"
       justifyContent="center"
       alignItems="center"
+      marginTop="80px"
     >
       <Box
         width="400px"

@@ -27,7 +27,7 @@
 
 .active-link {
     color: black;
-    font-weight: 600;
+    font-weight: bolder;
     text-decoration: none;
     transition: transform 0.5s;
 }

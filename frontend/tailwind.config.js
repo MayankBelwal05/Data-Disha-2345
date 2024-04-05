@@ -16,7 +16,8 @@ export default {
       colors: {
         primary: {
           500: '#29B6F6',
-          50: ' #F6F8FD',
+          50: '#F6F8FD',
+          60: ' #0388f4',
           DEFAULT: '#29B6F6',
           foreground: 'hsl(var(--primary-foreground))',
         },
@@ -62,7 +63,7 @@ export default {
         },
       },
       fontFamily: {
-        poppins: ['var(--font-poppins)'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       backgroundImage: {
         'dotted-pattern': "url('/assets/images/dotted-pattern.png')",

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-import bg from "../assets/about/istockphoto-1137054887-2048x2048.jpg";
 import img1 from "../assets/about/events.jpg";
 import img2 from "../assets/about/food.jpg";
 import img3 from "../assets/about/hobby.jpg";

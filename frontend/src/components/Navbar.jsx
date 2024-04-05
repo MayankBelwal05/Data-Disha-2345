@@ -53,19 +53,19 @@ export default function Navbar() {
         justify={isSmallScreen ? "center" : "space-between"}
         display={!isSmallScreen ? "flex" : "none"}
       >
-        <Link className="active-link" to="/home">
+        <Link className="hover:text-white font-bold" to="/">
           Home
         </Link>
-        <Link className="active-link" to="/event">
+        <Link className="hover:text-white font-bold" to="/events">
           Events
         </Link>
-        <Link className="active-link" to="/booking">
+        <Link className="hover:text-white font-bold" to="/booking">
           Booking
         </Link>
-        <Link className="active-link" to="/about">
+        <Link className="hover:text-white font-bold" to="/about">
           About Us
         </Link>
-        <Link className="active-link" to="/contact">
+        <Link className="hover:text-white font-bold" to="/contact">
           Contact Us
         </Link>
       </Flex>
@@ -85,27 +85,27 @@ export default function Navbar() {
             <MenuItem onClick={(e) => navigateToSignup(e)}>Signup</MenuItem>
             <MenuItem onClick={(e) => navigateToProfile(e)}>Profile</MenuItem>
             <MenuItem>
-              <Link className="active-link" to="/home">
+              <Link className="hover:text-white font-bold" to="/home">
                 Home
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link className="active-link" to="/event">
+              <Link className="hover:text-white font-bold" to="/event">
                 Events
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link className="active-link" to="/booking">
+              <Link className="hover:text-white font-bold" to="/booking">
                 Booking
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link className="active-link" to="/about">
+              <Link className="hover:text-white font-bold" to="/about">
                 About Us
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link className="active-link" to="/contact">
+              <Link className="hover:text-white font-bold" to="/contact">
                 Contact Us
               </Link>
             </MenuItem>

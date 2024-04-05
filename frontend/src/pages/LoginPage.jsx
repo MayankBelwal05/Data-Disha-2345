@@ -49,12 +49,20 @@ const Login = () => {
                 }
             );
 
-            // console.log(response);
+            console.log(response);
+
+            
+
             if (response.status === 200) {
                 const token = response.data.token;
-
-                // console.log(">>>>>>>>>", auth);
+                const user = response.data.user;
+                
+                console.log(token);
+                console.log(user);
+              
                 localStorage.setItem("token", token); // Set token in local storage
+                localStorage.setItem("user", JSON.stringify(user));
+                
                 setShowModal(true);
                 setModalMessage("Login successful");
                 // dispatch(authLinLout(true));

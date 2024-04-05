@@ -1,26 +1,26 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const { string } = require("prop-types");
 
 const userSchema = mongoose.Schema({
-	username: { type: String, required: true },
-	email: { type: String, required: true },
-	password: { type: String, required: true },
-	age: { type: Number, required: true },
-	city: { type: String, required: true },
-	role: {
-		type: String,
-		enum: ["user", "organizer", "admin"],
-		default: "user"
-	},
-	interests: {
-		type: String,
-		enum: ["Music", "Sports", "Dance", "Cultural", "Arts", "Live-Concert", "Versatile"],
-		default: "Versatile"
-	}
+  username: { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  age: { type: Number, required: true },
+  city: { type: String, required: true },
+  role: {
+    type: String,
+    enum: ["user", "organizer", "admin"],
+    default: "user"
+  },
+  interest: {
+    type : String
+  }
 }, {
-	versionKey: false
-})
-const userModel = mongoose.model("user", userSchema)
+  versionKey: false
+});
+
+const UserModel = mongoose.model("User", userSchema);
 
 module.exports = {
-	userModel
-}
+  UserModel
+};

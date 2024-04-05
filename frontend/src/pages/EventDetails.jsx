@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import loadingAnimation from "../assets/animation/animation.json";
 import Container from "../components/container/Container";
 
 const EventDetails = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const [event, setEvent] = useState({});
   const [allEvents, setAllEvents] = useState([]);
   const [filteredEvent, setFilteredEvent] = useState([]);
@@ -19,10 +20,9 @@ const EventDetails = () => {
         const response = await fetch(
           `http://localhost:8080/events/${params.eventId}`
         );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+        
         const eventData = await response.json();
+        console.log(eventData);
         setEvent(eventData.eventDetails);
       } catch (error) {
         setError(error);
@@ -89,12 +89,24 @@ const EventDetails = () => {
   const endFormattedDate = endDate.toLocaleDateString("en-US", dateOptions);
   const endFormattedTime = endDate.toLocaleTimeString("es-US", timeOptions);
 
+  const backToEventPage = (e) => {
+    e.preventDefault();
+    navigate('/events');
+  }
+
+  const handleBuyTicket = (e) => {
+    e.preventDefault();
+    navigate('/payment')
+  }
+
   return (
     <Container>
-      <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain py-4">
+      <i style={{color: "black", position: "absolute", left: "10px"}} onClick={e => backToEventPage(e)} className="fa-solid fa-arrow-left-long back-arrow"></i>
+      <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain py-4 ">
         <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl">
           <img
-            className="h-full min-h-[300px] object-cover object-center"
+            className="h-full min-h-[300px] object-cover object-center mx-3 "
+            // style={{marginTop: }}
             src={event.imageUrl}
             alt="hero image"
           />
@@ -120,7 +132,7 @@ const EventDetails = () => {
               </div>
             </div>
 
-            <button className="bg-primary-500 text-green-50 rounded-full h-[54px] w-[120px] p-regular-16 hover:bg-secondary">
+            <button onClick={e => handleBuyTicket(e)} className="bg-primary-500 text-green-50 rounded-full h-[54px] w-[120px] p-regular-16 hover:bg-primary-60">
               Buy Ticket
             </button>
 

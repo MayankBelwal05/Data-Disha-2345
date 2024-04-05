@@ -1,117 +1,89 @@
 
-const express = require("express")
+const express = require('express');
+const eventRouter = express.Router();
 
-const { eventModel } = require("../model/event.model")
-const { auth } = require("../middleware/auth.middleware")
-const { access } = require("../middleware/access.middleware")
-const { userModel } = require("../model/user.model")
-
-const eventRouter = express.Router()
-
-eventRouter.get("/", (req, res) => {
-	res.json({ msg: "this is event test route" })
-})
+const { EventModel } = require('../model/event.model');
+const { CategoryModel } = require('../model/category.model');
+const { UserModel } = require('../model/user.model');
+const { auth } = require('../middleware/auth.middleware');
+const { access } = require('../middleware/access.middleware');
 
 
-// access("creator", "viewer"),
 
-// POST Route     access("organizer", "admin"), 
-
-
-eventRouter.post("/", auth,async (req, res) => {
-    const payload = req.body
-    const userid = req.username
-    console.log(userid)
+// POST route to store event data with relationships
+eventRouter.post('/', auth, access("organizer", "admin"), async (req, res) => {
     try {
-        const user = await userModel.findById(userid);
-        // console.log(user.username);
-        const event = new eventModel({ ...payload, createdBy: userid });
+        // Extract event data from request body
+        const eventData = req.body;
+
+        // Check if the user exists
+        const user = await UserModel.findById(req.userID);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        // Check if the category exists
+        const category = await CategoryModel.findById(eventData.category);
+        if (!category) {
+            return res.status(404).json({ message: "Category not found" });
+        }
+
+        console.log(eventData);
+
+        console.log(category);
+
+        console.log(req.userID);
+        // Create event object with relationships
+        const event = new EventModel({
+            title: eventData.title,
+            description: eventData.description,
+            location: eventData.location,
+            imageUrl: eventData.imageUrl,
+            startDateTime: eventData.startDateTime,
+            endDateTime: eventData.endDateTime,
+            price: eventData.price,
+            isFree: eventData.isFree,
+            url: eventData.url,
+            organizer: req.userID, // Reference to the user who created the event
+            category: category._id // Reference to the category of the event
+        });
+
+        // Save the event to the database
         await event.save();
-        res.status(200).send({ msg: "Event has been added" })
-    } catch (err) {
-        res.status(400).send({ err: err.message })
+
+        res.status(201).json({ message: "Event created successfully", event });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Internal server error" });
     }
-})
+});
 
-// GET Route   access("user", "organizer", "admin"), 
-
-// eventRouter.get("/", auth,async (req, res) => {
-//     try {
-//         const createdBy = req.userID
-//         let query = {};
-
-//         // Sorting
-//         const sortField = req.query.sortField || 'createdAt'; // Default sort field is createdAt
-//         const sortOrder = req.query.sortOrder === 'asc' ? 1 : -1; // Default sort order is descending
-//         const sortOptions = { [sortField]: sortOrder };
-
-//         // Filtering books created within the last 10 minutes
-//         if (req.query.createdWithinLast10Min) {
-//             const currentTime = new Date();
-//             const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000);
-//             query.createdAt = { $gt: tenMinutesAgo };
-//         }
-
-//         // Filtering books created earlier than the last 10 minutes
-//         if (req.query.createdEarlierThan10Min) {
-//             const currentTime = new Date();
-//             const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000);
-//             query.createdAt = { $lte: tenMinutesAgo };
-//         }
-
-//         const currentTime = new Date();
-
-//         if (req.query.old) {
-//             // Find books created 10 minutes ago or earlier
-//             const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000);
-//             const books = await booksModel.find({ createdAt: { $lte: tenMinutesAgo } });
-//             res.status(200).send({ msg: 'Books created 10 minutes ago or earlier', books });
-//         } else if (req.query.new) {
-//             // Find books created less than 10 minutes ago
-//             const tenMinutesAgo = new Date(currentTime.getTime() - 10 * 60000);
-//             const books = await booksModel.find({ createdAt: { $gt: tenMinutesAgo } });
-//             res.status(200).send({ msg: 'Books created less than 10 minutes ago', books });
-//         }
-
-//         // console.log(req.role);
-
-//         if (req.role == "creator") {
-//             const books = await booksModel.find();
-//             res.status(200).send({ msg: 'All books', books });
-//         } else {
-//             const books = await booksModel.find({ createdBy });
-//             res.status(200).send({ msg: 'All books', books });
-//         }
-//     } catch (err) {
-//         res.status(400).send({ err: err.message })
-//     }
-// })
-
-// PATCH Route         access("admin"),
-
-eventRouter.patch("/:eventID", async (req, res) => {
-    const { eventID } = req.params
-    const updatePayload = req.body
+eventRouter.get('/', auth, async(req, res) => {
     try {
-        await eventModel.findByIdAndUpdate(eventID, updatePayload)
-        res.status(200).send({ message: `Event with ID ${eventID} has been updated` })
+        const events = await EventModel.find();
+        res.status(200).json({ msg: "All the events", events});
+
     } catch (err) {
-        res.status(400).send({ err: err.message })
+        res.status(500).json({ err });
     }
 })
 
-// DELETE Route access("admin"),
+eventRouter.get('/:eventId', async(req, res) => {
 
-eventRouter.patch("/:eventID",  async (req, res) => {
-    const { eventID } = req.params
+    const {eventId} = req.params;
     try {
-        await eventModel.findByIdAndUpdate(eventID)
-        res.status(200).send({ message: `Event with ID ${eventID} has been updated` })
+        const eventDetails = await EventModel.findById(eventId);
+        res.status(200).json({ msg: "Details of particular event", eventDetails});
+
     } catch (err) {
-        res.status(400).send({ err: err.message })
+        res.status(500).json({ err });
     }
 })
+
+
+
+
 
 module.exports = {
-    eventRouter
-}
+  eventRouter
+};

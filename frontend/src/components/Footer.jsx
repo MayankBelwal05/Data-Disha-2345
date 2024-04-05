@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Flex, Box, Input, Button, IconButton, useMediaQuery } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import './Footer.css';
+import logo from "../assets/VF.png";
 
 export default function Footer() {
   const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
@@ -14,12 +15,11 @@ export default function Footer() {
       color="black"
       bg="#29b5f6e9"
       boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
-      padding="10px"
       textAlign="left"
       direction={isSmallScreen ? "column" : "row"}
     >
       <Box className='footer-div1' w={isSmallScreen ? "100%" : "20%"} textAlign="center">
-        <img src="https://img.freepik.com/free-vector/red-logo-black-background_1195-52.jpg?t=st=1711725699~exp=1711729299~hmac=3192d6ca1dbcfbb168e492c8082dac001e9b7bd003c313e3f23c6e51892efaf8&w=740" alt="logo" width="150px" height="100px" />
+        <img src={logo} alt="logo" width="150px" height="150px" />
         <Box className='footer-div1-p' pl="20px">
           <p>At VibeVista, we specialize in turning your events into extraordinary experiences. Our Event Management System is crafted to simplify every aspect of planning, booking, and execution.</p>
         </Box>
