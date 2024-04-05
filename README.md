@@ -30,8 +30,8 @@ The EventPlanner website is a comprehensive platform designed to simplify event 
 Fullstack
 
 ## Deployed App
-Frontend: [Frontend Deployment Link]
-Backend: [Backend Deployment Link]
+Frontend: [https://data-disha-2345-ten.vercel.app/]
+Backend: [https://data-disha-2345-9rwv.onrender.com/]
 Database: [Database Deployment Link]
 
 ## Directory Structure
@@ -49,9 +49,17 @@ Data-Disha-2345/
       └─ pages/
 
 ## Video Walkthrough of the project
+![123](https://github.com/MayankBelwal05/Data-Disha-2345/assets/147751671/dbf1eee2-6aeb-4a2f-a802-f72ca294cc55)
+
+
+![12345](https://github.com/MayankBelwal05/Data-Disha-2345/assets/147751671/0dbfe247-af56-4186-9624-72f176001c4e)
+
+![123465](https://github.com/MayankBelwal05/Data-Disha-2345/assets/147751671/f22dddb6-6e9a-425f-b953-96ee0d1919a7)
+
 [Attach a very short video walkthrough of all of the features [1 - 3 minutes]]
 
 ## Video Walkthrough of the codebase
+
 [Attach a very short video walkthrough of the codebase [1 - 5 minutes]]
 
 ## Features
