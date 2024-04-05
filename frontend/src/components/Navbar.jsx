@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Box, Flex, Button, IconButton, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import logo from "../assets/VF.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function Navbar() {
       <Box>
         <img
           className="logo"
-          src="https://img.freepik.com/free-vector/gradient-quill-pen-design-template_23-2149837194.jpg?t=st=1711694376~exp=1711697976~hmac=65938d95ced59d27f281e3c8372388fb919c3f2e78073bcab5a463babe79c65f&w=740"
+          src={logo}
           alt="logo"
           width="80px"
           height="80px"

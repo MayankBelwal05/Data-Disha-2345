@@ -132,7 +132,8 @@ export default function AboutUsPage() {
       {/* <Add></Add> */}
       
     </div>
-
+    <div className="my-5"><h1 className="text-3xl lg:text-5xl font-bold text-black-300">Our Team</h1></div>
+            <div className="my-5"><h1 className="text-2xl lg:text-2xl  text-slate-500">For InnovateSphere - Tech & Beyond Summit</h1></div>
     <TeamCards></TeamCards>
     </div>
   )
