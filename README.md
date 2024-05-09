@@ -31,9 +31,11 @@ Fullstack
 
 ## Deployed App
 Frontend: [https://data-disha-2345-ten.vercel.app/]
+
 Backend: [https://data-disha-2345-9rwv.onrender.com/]
 
 ## Directory Structure
+```
 Data-Disha-2345/
 ├─ backend/
 │  ├─ config/
@@ -46,7 +48,7 @@ Data-Disha-2345/
       ├─ assets/
       ├─ components/
       └─ pages/
-
+```
 ## Video Walkthrough of the project
 ![123](https://github.com/MayankBelwal05/Data-Disha-2345/assets/147751671/dbf1eee2-6aeb-4a2f-a802-f72ca294cc55)
 
